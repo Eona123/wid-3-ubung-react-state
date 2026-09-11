@@ -1,0 +1,175 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  background-color: #282c34;
+  min-height: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.ExerciseContainer {
+  width: 100%;
+  border-bottom: 1px solid #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 16px;
+}
+
+.Exercise {
+  width: 65vw;
+}
+
+.Exercise p {
+  font-size: 11pt;
+  text-align: justify;
+  padding-right: 20px;
+}
+
+.Button {
+  background-color: white;
+  color: #007cc3;
+  cursor: pointer;
+  border: 1px solid #007cc3;
+  height: 30px;
+  width: 100px;
+  margin: 2px;
+}
+
+.Anzeige {
+  background-color: white;
+  color: #007cc3;
+  border: 1px solid #007cc3;
+  height: 36px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Button:hover {
+  opacity: 0.5;
+}
+
+.WrapperHorizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #007cc3;
+  width: 300px;
+  margin: 0 auto;
+  padding: 8px;
+  box-shadow: 5px 5px 5px -2px #c0c0c0;
+  height: 60px;
+}
+
+.WrapperGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #007cc3;
+  width: 400px;
+  margin: 0 auto;
+  padding: 8px;
+  box-shadow: 5px 5px 5px -2px #c0c0c0;
+  height: 120px;
+}
+
+.WrapperImg {
+  width: 400px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+#Checkbox {
+  height: 30px;
+  width: 30px;
+  color: #007cc3;
+  cursor: pointer;
+}
+
+#DynamicText {
+  color: #007cc3;
+  border: 1px dashed grey;
+  width: 120px;
+  padding: 6px;
+}
+
+.Dropdown {
+  color: #007cc3;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.Input {
+  color: #007cc3;
+  padding: 4px;
+  max-width: 100px;
+  margin: 2px;
+}
+
+#InputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.Emphasis {
+  font-style: italic;
+  font-weight: 700;
+  color: #007cc3;
+  text-align: justify;
+}
+
+h2 {
+  color: #007cc3;
+}
+
+button:disabled {
+  border: 1px solid #fff;
+  background-color: #e0e0e0;
+  color: #666666;
+}
+
+#ScoreField {
+  display: flex;
+  flex-direction: column;
+}
+
+#PlayerNames {
+  display: flex;
+  flex-direction: row;
+}
+
+#Buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
