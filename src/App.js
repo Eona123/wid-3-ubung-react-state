@@ -1,38 +1,34 @@
 import "./app.css";
 import { useState } from "react";
-import { Aufgabe1, Aufgabe2, Aufgabe3 } from "./static/ExText";
+import { Aufgabe1, Aufgabe2, Aufgabe3, Aufgabe4 } from "./static/ExText";
 
 function App() {
   const [state, setState] = useState("defaultWert"); // Beispiel für einen "useState-Hook".
-  console.log(state);
+  const [counter, setCounter] = useState(0); // useState Hook für Aufgabe 1
+
   // Du benötigst für jede Aufgabe einen weiteren "useState-Hook", welchen du am besten hier platzierst. Achte darauf, einen passenden Datentype als "default Wert" anzugeben.
 
   return (
     <div className="App">
-      <div className="App-header "> Übung WID 3 - React State</div>
+      <div className="App-header ">
+        {" "}
+        Übung WID 3 - React State und Interaktionen
+      </div>
       {/* --------------------------------------------------------------------------------------------- */}
       {/* -------------------------------------Aufgabe 1----------------------------------------------- */}
       {/* --------------------------------------------------------------------------------------------- */}
       <div className="ExerciseContainer">
         <Aufgabe1 />
         <div className="WrapperHorizontal">
-          <div className="Anzeige"> 0 </div>{" "}
-          {/* Ersetze 0 mit einer State-Variablen aus deinem Hook. Achte auf die geschweiften Klammern! */}
-          <button
-            className="Button"
-            onClick={
-              () =>
-                console.log(
-                  "Ich triggere das State update"
-                ) /*Diesen Handler willst du anpassen und console.log durch deine setState Funktion aus dem Hook ersetzen. Schreibe in die Klammern den Namen deiner State-Variable und +1, damit der jeweils aktuelle Wert um 1 erhöht wird. */
-            }
-          >
-            Like
+          {/* Nachfolgende Zeile: Die State-Variable counter liest den aktuellen "State" aus. */}
+          <div className="Anzeige"> {counter} </div>
+          {/* Nachfolgende Zeile: Die setState Funktion im onClick Handler wir beim Klick ausgeführt. Sie liest den aktuellen State (eine Zahl) und inkrementiert diese */}
+          <button className="Button" onClick={() => setCounter(counter + 1)}>
+            + 1
           </button>
           {/*
-           * Hier fügst du einen weiteren Button hinzu.
-           * Setze das Attribut className="Button" um das vordefinierte Styling für den Button zu übernehmen.
-           *
+           * Unter diesem Kommentar fügst du zwei weitere Buttons hinzu.
+           * Setze das Attribut className="Button" um das vordefinierte Styling für einen Button zu übernehmen.
            */}
         </div>
       </div>
@@ -50,7 +46,7 @@ function App() {
             onClick={
               (e) =>
                 console.log(
-                  e.target.checked
+                  e.target.checked,
                 ) /* Hier brauchst du wieder eine setState Funktion. Sie kann e.target.checked als Argument bekommen und dies in State schreiben. */
             }
           />
@@ -67,12 +63,35 @@ function App() {
           </div>
         </div>
       </div>
+
       {/* --------------------------------------------------------------------------------------------- */}
       {/* -------------------------------------Aufgabe 3----------------------------------------------- */}
       {/* --------------------------------------------------------------------------------------------- */}
-
       <div className="ExerciseContainer">
         <Aufgabe3 />
+        <div className="WrapperHorizontal">
+          {/* Im Input-Element fügst du ein weiteres Attribut mit dem Schlüssel `value`hinzu und weist die State-Variable in {}-Klammern als Wert zu. */}
+          <input
+            id="textfeld"
+            type="text"
+            onChange={
+              (e) =>
+                console.log(
+                  e.target.value,
+                ) /* Hier brauchst du wieder eine setState Funktion. Sie soll e.target.value als Argument bekommen und dies in State schreiben. */
+            }
+          />
+          <div>
+            <p>{/*  Hier liest du die State Variable aus.  */}</p>
+          </div>
+        </div>
+      </div>
+      {/* --------------------------------------------------------------------------------------------- */}
+      {/* -------------------------------------Aufgabe 4----------------------------------------------- */}
+      {/* --------------------------------------------------------------------------------------------- */}
+
+      <div className="ExerciseContainer">
+        <Aufgabe4 />
         <div className="WrapperHorizontal">
           {/*
            * Öffne als erstes die Browser-Konsole und überprüfe was der Event Handler gerade loggt - d.h. was der Wert ist, wenn du das Dropdown benutzt.
@@ -86,7 +105,7 @@ function App() {
                 "event.target.value ist: ",
                 event.target.value,
                 " der Datentype ist: ",
-                typeof event.target.value
+                typeof event.target.value,
               );
             }}
           >
