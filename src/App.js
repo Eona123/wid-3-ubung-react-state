@@ -43,7 +43,7 @@ function App() {
           <input
             id="Checkbox"
             type="checkbox"
-            onClick={
+            onChange={
               (e) =>
                 console.log(
                   e.target.checked,
