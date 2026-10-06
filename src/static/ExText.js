@@ -18,30 +18,50 @@ export const Aufgabe2 = () => (
     <h2>Aufgabe 2: Checkbox</h2>
     <div>
       <p>
-        2.1) Hier brauchst du einen neuen useState-Hook. Setze den default Wert
-        im Hook auf `true`. Passe dann den Code so an, dass ein Klick auf die
-        Checkbox ein State-Update erzeugt welches den Zustand der Checkbox
-        (aktiv, nicht aktiv) reflektiert. Du kannst den `!`-Operator nutzen, um
-        in der setStateFunktion die State-Variable zu invertieren (aus true wird
-        false und aus false wird true).
+        Hier wurde bereits eine Checkbox definiert. Der Event-Handler ist
+        onChange (onClick würde auch funktionieren). Dieser liest das Event
+        Objekt (hier "e" genannt) und schreibt den Wert von "e.target.checked"
+        in die Konsole. Dieser Wert enhält die Information, ob die Checkbox
+        aktiv oder inaktiv ist. Wenn du die Checkbox an- oder abwählst, siehst
+        du, das HTML bereits für beide Zustände ein passendes Symbol anzeigt.
+        Meist wollen wir aber auf den Zustand der Checkbox reagieren (z.B. etwas
+        Einblenden). Dazu müssen wir den Zustand an React binden.
       </p>
       <p>
-        2.2) Füge dem Input-Element ein Attribut `checked={}` hinzu. In die
-        {}-Klammern schreibst du deine State-Variable. Damit machst du aus dem
-        "unkontrollierten" HTML-Element ein (von React State) "kontrolliertes"
+        2.1) Lege einen neuen useState-Hook an, ähnlich zu dem, der "counter"
+        und "setCounter" enthält. Benenne die State-Variable und
+        setState-Funktion passend. Setze den Default-Wert auf true (keine
+        Anführungszeichen, es ist ein boolscher Wert).
+      </p>
+      <p>
+        2.2) Ersetze das{" "}
+        <span className="Emphasis">console.log(e.target.checked)</span> durch
+        deine setStateFunktion, also z.B. setCheckbox(e.target.checked). Damit
+        erzeugt eine Interaktion mit der Checkbox eine Änderung von State.
+      </p>
+      <p>
+        2.3) Füge dem Input-Element ein Attribut{" "}
+        <span className="Emphasis">checked={}</span> hinzu. In die
+        {}-Klammern schreibst du deine State-Variable. Damit machst du aus einem
+        "unkontrollierten" HTML-Element ein, von React State, "kontrolliertes"
         Element. Die Checkbox reflektiert jetzt immer den boolschen Zustand von
-        State (checked = true oder checked=false).
+        State (checked=true oder checked=false). Teste, ob das soweit
+        funktioniert.
       </p>
       <p>
-        2.3) Passe den Text (p-Element) neben der Checkbox an, dass er "Ja"
-        anzeigt, wenn die Box aktiv ist, und "Nein" wenn sie nicht aktiv ist.
-        Ersetze den statischen Text "JA oder NEIN" durch eine Kondition (nutze
-        den <span className="Emphasis">ternary operator</span>), welche "JA" für
-        eine aktive Checkbox zurückgibt und "Nein" für eine inaktive Checkbox.
+        2.4) Etwas unterhalb siehst du ein p-Element mit einem Inline-Stil für
+        die Farbe, sowie einem Text. Beide sollen auf den Zustand der Checkbox
+        reagieren und die Farbe, bzw. den Text, ändern. Hierfür eignet sich der{" "}
+        ternäre Operator. Syntax-Erinnerung:{" "}
+        <span className="Emphasis">Bedingung ? wennWahr : wennFalsch;</span>.
+        Deine Bedingung ist hier die State-Variable (mit Wert true oder false).
+        Schreibe anstatt des Textes "JA" den Operator mit "JA" (für wennWahr)
+        bzw. "NEIN" (für wennFalsch). Teste, ob ein Klick auf die Checkbox zu
+        einer Änderung des Textes führt.
       </p>
       <p>
-        2.4) Passe den Inline-Stil ("style"-Attribut) des p-Elements so an, dass
-        ein "JA" grün und ein "NEIN" rot dargestellt wird.
+        2.5) Passe nun den Inline-Stil ("style"-Attribut) des p-Elements so an,
+        dass auch die Textfarbe auf die Checkbox reagiert.
       </p>
     </div>
   </div>
@@ -50,19 +70,20 @@ export const Aufgabe3 = () => (
   <div className="Exercise">
     <h2>Aufgabe 3: Eingabefeld</h2>
     <p>
-      3.1) In Aufgabe 2 hast du das Event-Objekt genutzt, um `e.target.checked`
-      auszulesen. Für Eingabefelder benötigt man hingegen `e.target.value` -
-      d.h. den "String"-Wert, der nach Nutzereingabe in dem Feld steht. Lege
-      zunächst einen weiteren Hook an, dessen Default-Wert ein leerer String
-      ist.
+      3.1) In Aufgabe 2 hast du das Event-Objekt genutzt, um{" "}
+      <span className="Emphasis">e.target.checked </span> auszulesen. Für
+      Eingabefelder benötigt man hingegen{" "}
+      <span className="Emphasis">e.target.value</span> - d.h. den "String"-Wert,
+      der nach Nutzereingabe in dem Feld steht. Lege zunächst einen weiteren
+      Hook an, dessen Default-Wert ein leerer String ("") ist.
     </p>
     <p>
-      3.2) Nun legst du im Input-Element ein zusätzliches Attribut `value` an
-      und weist diesem deine State-Variable zu. Achte auf die geschweiften
-      Klammern, da es sich um eine JavaScript-Variable und nicht um einen fixen
-      String (wie bei id oder type handelt). Schreibe die State-Variable, auch
-      in geschweiften Klammern in das darunterstehenede p-Element. So wird sie
-      auf der Webseite angezeigt.
+      3.2) Nun legst du im Input-Element ein zusätzliches Attribut{" "}
+      <span className="Emphasis">value</span> an und weist diesem deine
+      State-Variable zu. Achte auf die geschweiften Klammern, da es sich um eine
+      JavaScript-Variable und nicht um einen fixen String (wie bei id oder type
+      handelt). Schreibe die State-Variable, auch in geschweiften Klammern in
+      das darunterstehenede p-Element. So wird sie auf der Webseite angezeigt.
     </p>
     3.3) Zuletzt benötigst du eine setState-Funktion im onChange-Handler des
     Input-Elements, um auf die Nutzereingabe zu reagieren. Diese soll

@@ -148,6 +148,12 @@
   text-align: justify;
 }
 
+.Code {
+  color: #e0e0e0;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
 h2 {
   color: #007cc3;
 }
