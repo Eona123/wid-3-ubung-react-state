@@ -26,14 +26,21 @@ export const Aufgabe2 = () => (
         false und aus false wird true).
       </p>
       <p>
-        2.2) Passe den Text (p-Element) neben der Checkbox an, dass er "Ja"
+        2.2) Füge dem Input-Element ein Attribut `checked={}` hinzu. In die
+        {}-Klammern schreibst du deine State-Variable. Damit machst du aus dem
+        "unkontrollierten" HTML-Element ein (von React State) "kontrolliertes"
+        Element. Die Checkbox reflektiert jetzt immer den boolschen Zustand von
+        State (checked = true oder checked=false).
+      </p>
+      <p>
+        2.3) Passe den Text (p-Element) neben der Checkbox an, dass er "Ja"
         anzeigt, wenn die Box aktiv ist, und "Nein" wenn sie nicht aktiv ist.
         Ersetze den statischen Text "JA oder NEIN" durch eine Kondition (nutze
         den <span className="Emphasis">ternary operator</span>), welche "JA" für
         eine aktive Checkbox zurückgibt und "Nein" für eine inaktive Checkbox.
       </p>
       <p>
-        2.3) Passe den Inline-Stil ("style"-Attribut) des p-Elements so an, dass
+        2.4) Passe den Inline-Stil ("style"-Attribut) des p-Elements so an, dass
         ein "JA" grün und ein "NEIN" rot dargestellt wird.
       </p>
     </div>
@@ -53,9 +60,9 @@ export const Aufgabe3 = () => (
       3.2) Nun legst du im Input-Element ein zusätzliches Attribut `value` an
       und weist diesem deine State-Variable zu. Achte auf die geschweiften
       Klammern, da es sich um eine JavaScript-Variable und nicht um einen fixen
-      String (wie bei id oder type handelt). Schreibe die Variable, ebenfalls in
-      geschweiften Klammern in das darunterstehenede p-Element. So wird sie auf
-      der Webseite angezeigt.
+      String (wie bei id oder type handelt). Schreibe die State-Variable, auch
+      in geschweiften Klammern in das darunterstehenede p-Element. So wird sie
+      auf der Webseite angezeigt.
     </p>
     3.3) Zuletzt benötigst du eine setState-Funktion im onChange-Handler des
     Input-Elements, um auf die Nutzereingabe zu reagieren. Diese soll
@@ -72,7 +79,8 @@ export const Aufgabe4 = () => (
       verschiedene Werte, wie "links", "mitte", "rechts" aus. Aktuell wird das
       Event in der Konsole geloggt. Passe die onChange-Funktion so an, dass
       statt eines <span className="Emphasis">console.log()</span> die Auswahl in
-      den State geschrieben wird (nutze einen neuen useState-Hook).
+      den State geschrieben wird (nutze einen neuen useState-Hook). Denke auch
+      daran, wieder ein value-Attribut zu vergeben.
     </p>
     <p>
       4.2) Etwas unterhalb findest du ein p-Element (id="DynamicText") mit
@@ -88,7 +96,8 @@ export const Aufgabe4 = () => (
       Auswahlschritte 10, 12, 14 und 16. Beachte, dass das Event einen String
       und keine Zahl zurückgibt. Nutze die Funktion{" "}
       <span className="Emphasis">parseInt() </span>
-      um Strings zu Zahlen zu konvertieren.
+      um Strings zu Zahlen zu konvertieren. Syntax Beispiel: parseInt("2")
+      konvertiert zur Zahl 2.
     </p>
   </div>
 );
