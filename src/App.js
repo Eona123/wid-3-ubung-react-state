@@ -5,6 +5,10 @@ import { Aufgabe1, Aufgabe2, Aufgabe3, Aufgabe4 } from "./static/ExText";
 function App() {
   const [state, setState] = useState("defaultWert"); // Beispiel für einen "useState-Hook".
   const [counter, setCounter] = useState(0); // useState Hook für Aufgabe 1
+  const [checked, setChecked] = useState(false); // useState Hook für Aufgabe 2
+  const [textInput, setTextInput] = useState(""); // useState Hook für Aufgabe 3
+  const [inspect, setInspect] = useState("right"); // useState Hook für Aufgabe 4
+  const [fontSize, setFontSize] = useState(10); // useState Hook für Aufgabe 4 (Schriftgröße)
 
   // Du benötigst für jede Aufgabe einen weiteren "useState-Hook", welchen du am besten hier platzierst. Achte darauf, einen passenden Datentype als "default Wert" anzugeben.
 
@@ -30,6 +34,12 @@ function App() {
            * Unter diesem Kommentar fügst du zwei weitere Buttons hinzu.
            * Setze das Attribut className="Button" um das vordefinierte Styling für einen Button zu übernehmen.
            */}
+          <button className="Button" onClick={() => setCounter(counter + 5)}>
+            + 5
+          </button>
+          <button className="Button" onClick={() => setCounter(0)}>
+            zurücksetzen
+          </button>
         </div>
       </div>
 
@@ -43,22 +53,23 @@ function App() {
           <input
             id="Checkbox"
             type="checkbox"
-            onChange={
-              (e) =>
-                console.log(
-                  e.target.checked,
-                ) /* Hier brauchst du wieder eine setState Funktion. Sie kann e.target.checked als Argument bekommen und dies in State schreiben. */
-            }
+            onChange={(e) => {
+              setChecked(e.target.checked);
+              /* console.log(checked); Hier brauchst du wieder eine setState Funktion. Sie kann e.target.checked als Argument bekommen und dies in State schreiben. */
+            }}
+            checked={checked}
+            
           />
           <div>
-            {/*
+            {
+            /*
              * Im P-Element brauchst du zweimal einen Ternary-Operator (Erinnerung: Bedingung ? Wenn true : Wenn false).
              * Als Bedingung benutzt du deine State-Variable (vom Typ boolean)
              * Schreibe das Element dann so um, dass bei true die eine Farbe, und bei false die andere Farbe benutzt wird.
              * Gleiches machst du für den Text.
              */}
-            <p style={{ color: "#007cc3" /*  oder "#ff00ff" */ }}>
-              {"JA" /*  oder "NEIN" */}
+            <p style={(checked) ? { color: "#007cc3" } : { color: "#ff00ff" }}>
+              {(checked) ? "Ja" : "Nein"}
             </p>
           </div>
         </div>
@@ -76,13 +87,13 @@ function App() {
             type="text"
             onChange={
               (e) =>
-                console.log(
-                  e.target.value,
+                setTextInput(e.target.value
                 ) /* Hier brauchst du wieder eine setState Funktion. Sie soll e.target.value als Argument bekommen und dies in State schreiben. */
             }
+            value={textInput}
           />
           <div>
-            <p>{/*  Hier liest du die State Variable aus.  */}</p>
+            <p>{textInput /*  Hier liest du die State Variable aus.  */}</p>
           </div>
         </div>
       </div>
@@ -101,13 +112,9 @@ function App() {
           <select
             className="Dropdown"
             onChange={(event) => {
-              console.log(
-                "event.target.value ist: ",
-                event.target.value,
-                " der Datentype ist: ",
-                typeof event.target.value,
-              );
+              setInspect(event.target.value);
             }}
+            value={inspect}
           >
             <option value="left">Links</option>
             <option value="center">Mittig</option>
@@ -118,18 +125,29 @@ function App() {
            * Du brauchst einen weiteren useState-Hook, der das Ergebnis der Auswahl als Zahl speichert.
            * Achtung - der Handler gibt dir die Zahl als Text (String) zurück. Konvertertiere diese mit `parseInt()`zu einer Zahl ("number"). Das kannst du direkt in der setState Funktion tun.
            */}
+          <select
+            className="DropdownFontSize"
+            onChange={(eventSize) => {
+              setFontSize(parseInt(eventSize.target.value));
+            }}
+            value={fontSize}
+          >
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+          </select>
 
           <div>
             <p
               id="DynamicText"
               style={
                 {
-                  textAlign: "center",
-                  fontSize: 10,
+                  textAlign: inspect,
+                  fontSize: fontSize,
                 } /* Diese statischen Werte möchtest du an "State" binden. Überprüfe ob deine Interaktionen den Text verändert  */
               }
-            >
-              Text
+            >{inspect}
             </p>
           </div>
         </div>
